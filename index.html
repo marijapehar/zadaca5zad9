@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <title>Savršeni brojevi</title>
+</head>
+<body>
+  <h2>Savršeni brojevi:</h2>
+  <div id="rezultat"></div>
+
+  <script>
+    function ispisSavrsenihBrojeva(n) {
+      const rezultat = [];
+
+      function djelitelji(broj) {
+        let sum = 0;
+        for (let i = 1; i <= broj / 2; i++) {
+          if (broj % i === 0) {
+            sum += i;
+          }
+        }
+        return sum;
+      }
+
+      for (let i = 1; i <= n; i++) {
+        if (djelitelji(i) === i) {
+          rezultat.push(i);
+        }
+      }
+
+      document.getElementById("rezultat").innerHTML = "Savršeni brojevi od 1 do " + n + " su: " + rezultat.join(", ");
+    }
+    ispisSavrsenihBrojeva(10000);
+  </script>
+</body>
+</html>
